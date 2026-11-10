@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poovendran S | Cloud Computing, AWS and DevOps Engineer</title>
+<meta name="description" content="Portfolio of Poovendran S, a Computer Science graduate (2026) focused on Cloud Computing, AWS, Linux and DevOps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fog:#eef2f6; --paper:#f8fafc; --ink:#13233b; --mute:#5a6b82; --line:#cfd9e5;
+  --signal:#2b59ff; --sun:#ffb531; --on-signal:#fff;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Figtree','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--fog:#0e1a2c; --paper:#14243b; --ink:#e8eef7; --mute:#93a4bc; --line:#26395a; --signal:#6f93ff; --on-signal:#0e1a2c}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--body);background:var(--fog);color:var(--ink);line-height:1.6;font-size:1.0625rem;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.02;letter-spacing:-.02em}
+h2{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;margin-bottom:2.5rem;max-width:16ch}
+section{padding:6rem 0}
+
+/* nav */
+header{position:fixed;top:.9rem;left:0;right:0;z-index:50}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:min(1180px,100% - 2rem);margin-inline:auto;padding:.55rem .6rem .55rem 1.2rem;background:color-mix(in srgb,var(--paper) 85%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.2rem;text-decoration:none}
+.logo i{font-style:normal;color:var(--signal)}
+.links{display:flex;gap:.2rem;list-style:none}
+.links a{display:block;padding:.45rem .95rem;border-radius:999px;text-decoration:none;font-weight:500;font-size:.95rem;color:var(--mute);transition:background .2s,color .2s}
+.links a:hover,.links a.on{background:var(--fog);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.3rem;border-radius:999px;background:var(--signal);color:var(--on-signal);font-weight:600;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:600;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px var(--signal)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.menu{display:none;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:.6rem 1rem;font:inherit;font-weight:600;cursor:pointer}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:8rem 0 4rem;overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;pointer-events:none}
+.hero a,.hero .btn{pointer-events:auto}
+.status{display:inline-flex;align-items:center;gap:.6rem;background:var(--paper);border:1px solid var(--line);padding:.4rem .9rem;border-radius:999px;font-size:.92rem;margin-bottom:1.6rem}
+.status b{width:.6rem;height:.6rem;border-radius:50%;background:#1fbf75;box-shadow:0 0 0 0 #1fbf7588;animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 .6rem #1fbf7500}100%{box-shadow:0 0 0 0 #1fbf7500}}
+.hero h1{font-size:clamp(3.6rem,13.5vw,12rem);font-weight:800;margin-bottom:1.6rem}
+.hero h1 span{display:block;overflow:hidden}
+.hero h1 span em{display:block;font-style:normal;transform:translateY(105%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 span:nth-child(2) em{animation-delay:.12s;color:var(--signal)}
+@keyframes rise{to{transform:none}}
+.hero-row{display:flex;flex-wrap:wrap;gap:1.5rem 3rem;align-items:center;justify-content:space-between}
+.hero p{max-width:46ch;color:var(--mute);font-size:1.15rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+
+/* about */
+.about{background:var(--paper);border-block:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;align-items:start}
+.about-grid p{font-size:1.25rem;margin-bottom:1.2rem;max-width:56ch}
+.about-grid p:first-child{font-family:var(--display);font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.25;letter-spacing:-.01em}
+dl{border-top:1px solid var(--line)}
+dl div{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+dt{color:var(--mute)} dd{font-weight:600;text-align:right}
+
+/* toolkit */
+.core{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin-bottom:3rem}
+.core div{padding:1.2rem;border-radius:20px;background:var(--paper);border:1px solid var(--line)}
+.core small{display:block;color:var(--mute);font-size:.85rem}
+.core strong{font-family:var(--display);font-size:1.3rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.chip{padding:.5rem 1.1rem;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-weight:500;cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem}
+.tool{padding:1rem 1.2rem;border-radius:16px;background:var(--paper);border:1px solid var(--line);animation:pop .35s ease both}
+.tool small{display:block;color:var(--mute);font-size:.8rem}
+.tool strong{font-weight:600}
+@keyframes pop{from{opacity:0;transform:scale(.96)}}
+
+/* projects */
+.work{background:var(--ink);color:var(--paper);--line:#2f4262;--mute:#9db0cb}
+@media (prefers-color-scheme:dark){.work{background:#091324;color:#e8eef7}}
+.proj{border-top:1px solid var(--line)}
+.proj:last-child{border-bottom:1px solid var(--line)}
+.proj button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:1fr auto 3rem;gap:1.5rem;align-items:center;padding:1.7rem .5rem;cursor:pointer;transition:padding .3s,background .3s}
+.proj button:hover{padding-inline:1.2rem;background:#ffffff0d}
+.proj button:focus-visible{outline:3px solid var(--sun)}
+.proj h3{font-size:clamp(1.5rem,3.4vw,2.6rem);font-weight:600}
+.proj .tags{color:var(--mute);font-size:.95rem}
+.plus{width:2.6rem;height:2.6rem;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font-size:1.4rem;transition:transform .35s,background .3s}
+.proj.open .plus{transform:rotate(135deg);background:var(--sun);color:#13233b;border-color:var(--sun)}
+.more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.proj.open .more{grid-template-rows:1fr}
+.more>div{overflow:hidden}
+.more-in{display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:.5rem .5rem 2.2rem}
+.more h4{font-size:.9rem;color:var(--sun);margin-bottom:.4rem}
+.more p,.more li{color:#d3deee}
+.more ul{padding-left:1.1rem}
+.note{margin-top:1.5rem;color:var(--mute);font-size:.95rem}
+
+/* case studies */
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.panel{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden;animation:pop .4s ease}
+.panel div{background:var(--paper);padding:1.8rem}
+.panel h4{font-family:var(--display);font-size:1.15rem;margin-bottom:.4rem}
+.panel p{color:var(--mute)}
+.panel .big{grid-column:1/-1}
+.panel .big h3{font-size:clamp(1.6rem,3vw,2.3rem)}
+
+/* why */
+.why{background:var(--paper);border-block:1px solid var(--line)}
+.why ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:0 3rem}
+.why li{padding:1.6rem 0;border-top:1px solid var(--line)}
+.why strong{display:block;font-family:var(--display);font-size:1.5rem;margin-bottom:.2rem}
+.why li span{color:var(--mute)}
+.why .close{margin-top:2.5rem;font-size:1.2rem;max-width:60ch}
+
+/* contact */
+.contact h2{max-width:none;font-size:clamp(2.6rem,8vw,7rem)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:2.5rem 0}
+.card{display:block;padding:1.5rem;border-radius:22px;background:var(--paper);border:1px solid var(--line);text-decoration:none;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--signal)}
+.card small{color:var(--mute);display:block}
+.card strong{font-size:1.1rem;word-break:break-word}
+footer{padding:2rem 0 3rem;color:var(--mute);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,200%);background:var(--ink);color:var(--paper);padding:.8rem 1.4rem;border-radius:999px;transition:transform .4s;z-index:60}
+.toast.show{transform:translate(-50%,0)}
+
+@media (max-width:860px){
+  .menu{display:block}
+  .links{position:absolute;top:calc(100% + .5rem);left:0;right:0;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:.6rem;display:none}
+  .links.open{display:flex}
+  .nav>.btn{display:none}
+  .nav{position:relative}
+  .about-grid,.more-in,.why ul,.panel{grid-template-columns:1fr}
+  .proj button{grid-template-columns:1fr 3rem}
+  .proj .tags{grid-column:1;grid-row:2}
+  section{padding:4.5rem 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .hero h1 span em{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="#top">Poovendran<i>.</i></a>
+    <ul class="links" id="links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#toolkit">Toolkit</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#cases">Case studies</a></li>
+      <li><a href="#why">Why me</a></li>
+    </ul>
+    <a class="btn" href="#contact">Contact me</a>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="links">Menu</button>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-top:8rem">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="status"><b></b>Open to cloud and DevOps roles, Class of 2026</div>
+    <h1 aria-label="Poovendran S"><span><em>Poovendran</em></span><span><em>S.</em></span></h1>
+    <div class="hero-row">
+      <p>Cloud Computing, AWS and DevOps engineer. I build practical solutions for real-world infrastructure challenges.</p>
+      <div class="cta">
+        <a class="btn" href="#projects">See my work</a>
+        <a class="btn ghost" href="#contact">Let’s connect</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <h2>A graduate who likes how the cloud fits together.</h2>
+    <div class="about-grid">
+      <div>
+        <p>I’m a motivated BE Computer Science and Engineering graduate (2026) with a strong interest in Cloud Computing and DevOps Engineering.</p>
+        <p>I have built technical knowledge in AWS, Linux, networking, DevOps practices and Python scripting, and I enjoy applying it through hands-on projects.</p>
+        <p>My goal is a career in Cloud and DevOps, where I keep growing while contributing to innovative solutions.</p>
+      </div>
+      <dl>
+        <div><dt>Degree</dt><dd>BE Computer Science and Engineering</dd></div>
+        <div><dt>Graduating</dt><dd>2026</dd></div>
+        <div><dt>Focus</dt><dd>Cloud and DevOps</dd></div>
+        <div><dt>Looking for</dt><dd>Roles, networking, collaborations</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="toolkit">
+  <div class="wrap">
+    <h2>The toolkit I work with.</h2>
+    <div class="core">
+      <div><small>Cloud</small><strong>AWS</strong></div>
+      <div><small>Operating system</small><strong>Linux</strong></div>
+      <div><small>Networking</small><strong>CCNA Fundamentals</strong></div>
+      <div><small>Delivery</small><strong>DevOps and CI/CD</strong></div>
+      <div><small>Programming</small><strong>Python</strong></div>
+      <div><small>Scripting</small><strong>Python Scripting</strong></div>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filter tools by category"></div>
+    <div class="tools" id="tools" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="work" id="projects">
+  <div class="wrap">
+    <h2>Featured projects.</h2>
+    <div id="projList"></div>
+    <p class="note">Tip: replace the placeholder text in the <code>PROJECTS</code> list at the bottom of this file with your own projects.</p>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="wrap">
+    <h2>Technical case studies.</h2>
+    <div class="tabs" id="tabs" role="tablist" aria-label="Case studies"></div>
+    <div id="panel" role="tabpanel"></div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <h2>Why work with me?</h2>
+    <ul>
+      <li><strong>Technical knowledge</strong><span>Familiar with AWS, Linux, networking, DevOps and Python scripting.</span></li>
+      <li><strong>Quick learner</strong><span>Enthusiastic about picking up new technologies and deepening what I know.</span></li>
+      <li><strong>Problem solver</strong><span>I like analyzing challenges and building practical solutions.</span></li>
+      <li><strong>Adaptable</strong><span>Comfortable adjusting to new tools, technologies and working environments.</span></li>
+      <li><strong>Growth mindset</strong><span>Committed to continuous learning and professional development.</span></li>
+    </ul>
+    <p class="close">I’m eager to apply my knowledge, contribute to technical teams and grow as a Cloud Computing and DevOps professional.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let’s connect.</h2>
+    <p style="max-width:54ch;color:var(--mute)">I’m open to professional opportunities, networking and collaborations in Cloud Computing, AWS and DevOps Engineering.</p>
+    <div class="cards">
+      <a class="card" href="mailto:poovendran263@gmail.com"><small>Email</small><strong>poovendran263@gmail.com</strong></a>
+      <a class="card" href="https://wa.me/919342821411" target="_blank" rel="noopener"><small>WhatsApp</small><strong>+91 93428 21411</strong></a>
+      <a class="card" href="https://www.linkedin.com/in/poovendran2609/" target="_blank" rel="noopener"><small>LinkedIn</small><strong>poovendran2609</strong></a>
+    </div>
+    <button class="btn" id="copy">Copy email address</button>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Poovendran S</span><span>Let’s learn, build and grow together!</span></div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ===== EDIT YOUR CONTENT HERE ===== */
+const PROJECTS = [
+  {title:"Project title 1", tech:"Add technologies", overview:"Describe what you built and why.", features:["Key feature one","Key feature two","Key feature three"]},
+  {title:"Project title 2", tech:"Add technologies", overview:"Describe what you built and why.", features:["Key feature one","Key feature two","Key feature three"]},
+  {title:"Project title 3", tech:"Add technologies", overview:"Describe what you built and why.", features:["Key feature one","Key feature two","Key feature three"]},
+  {title:"Project title 4", tech:"Add technologies", overview:"Describe what you built and why.", features:["Key feature one","Key feature two","Key feature three"]},
+  {title:"Project title 5", tech:"Add technologies", overview:"Describe what you built and why.", features:["Key feature one","Key feature two","Key feature three"]}
+];
+const CASES = [
+  {title:"Case study title 1", problem:"What problem were you solving?", tech:"Technologies used", impl:"How did you build or fix it?", results:"What was the outcome?"},
+  {title:"Case study title 2", problem:"What problem were you solving?", tech:"Technologies used", impl:"How did you build or fix it?", results:"What was the outcome?"},
+  {title:"Case study title 3", problem:"What problem were you solving?", tech:"Technologies used", impl:"How did you build or fix it?", results:"What was the outcome?"}
+];
+const TOOLS = {
+  "Linux":["Ubuntu","Bash","SSH"],
+  "Networking":["Cisco Packet Tracer","Wireshark"],
+  "AWS":["EC2","S3","IAM","VPC","Route 53"],
+  "Version control":["Git","GitHub"],
+  "CI/CD":["Jenkins","GitHub Actions"],
+  "Containers":["Docker","Kubernetes"],
+  "Infrastructure as code":["Terraform","Ansible"],
+  "Monitoring":["Prometheus","Grafana"]
+};
+/* ================================== */
+
+const $=s=>document.querySelector(s);
+$('#yr').textContent=new Date().getFullYear();
+
+/* nav */
+const links=$('#links'),menu=$('#menu');
+menu.onclick=()=>{const o=links.classList.toggle('open');menu.setAttribute('aria-expanded',o)};
+links.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded',false)});
+const secs=[...document.querySelectorAll('main section[id]')];
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'}).observe&&secs.forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+s.id))}),{rootMargin:'-45% 0px -50% 0px'}).observe(s));
+
+/* tools filter */
+const chips=$('#chips'),tools=$('#tools');let active='All';
+function drawTools(){
+  tools.innerHTML='';
+  Object.entries(TOOLS).forEach(([c,list])=>{
+    if(active!=='All'&&active!==c)return;
+    list.forEach(t=>{const d=document.createElement('div');d.className='tool';d.innerHTML=`<small>${c}</small><strong>${t}</strong>`;tools.appendChild(d)});
+  });
+  chips.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===active));
+}
+['All',...Object.keys(TOOLS)].forEach(c=>{
+  const b=document.createElement('button');b.className='chip';b.textContent=c;b.dataset.c=c;
+  b.onclick=()=>{active=c;drawTools()};chips.appendChild(b);
+});
+drawTools();
+
+/* projects accordion */
+const pl=$('#projList');
+PROJECTS.forEach((p,i)=>{
+  const el=document.createElement('div');el.className='proj';
+  el.innerHTML=`<button aria-expanded="false" aria-controls="p${i}"><h3></h3><span class="tags"></span><span class="plus" aria-hidden="true">+</span></button>
+  <div class="more" id="p${i}"><div><div class="more-in"><div><h4>Overview</h4><p class="ov"></p></div><div><h4>Key features</h4><ul class="ft"></ul></div></div></div></div>`;
+  el.querySelector('h3').textContent=p.title;
+  el.querySelector('.tags').textContent=p.tech;
+  el.querySelector('.ov').textContent=p.overview;
+  p.features.forEach(f=>{const li=document.createElement('li');li.textContent=f;el.querySelector('.ft').appendChild(li)});
+  const btn=el.querySelector('button');
+  btn.onclick=()=>{const o=el.classList.toggle('open');btn.setAttribute('aria-expanded',o)};
+  pl.appendChild(el);
+});
+pl.firstChild.querySelector('button').click();
+
+/* case studies */
+const tabs=$('#tabs'),panel=$('#panel');
+function showCase(i){
+  const c=CASES[i];
+  tabs.querySelectorAll('button').forEach((b,j)=>{b.setAttribute('aria-pressed',i===j);b.setAttribute('aria-selected',i===j)});
+  panel.innerHTML='';
+  const p=document.createElement('div');p.className='panel';
+  const mk=(h,t,cls)=>{const d=document.createElement('div');if(cls)d.className=cls;const e=document.createElement(cls?'h3':'h4');e.textContent=h;d.appendChild(e);if(t){const q=document.createElement('p');q.textContent=t;d.appendChild(q)}p.appendChild(d)};
+  mk(c.title,'','big');
+  mk('Problem statement',c.problem);mk('Technologies used',c.tech);
+  mk('Implementation',c.impl);mk('Results',c.results);
+  panel.appendChild(p);
+}
+CASES.forEach((c,i)=>{const b=document.createElement('button');b.className='chip';b.setAttribute('role','tab');b.textContent=c.title;b.onclick=()=>showCase(i);tabs.appendChild(b)});
+showCase(0);
+
+/* copy email */
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),2200)}
+$('#copy').onclick=async()=>{
+  try{await navigator.clipboard.writeText('poovendran263@gmail.com');toast('Email address copied')}
+  catch(e){toast('Copy failed. Email: poovendran263@gmail.com')}
+};
+
+/* hero network: tools drift and react to the pointer */
+(()=>{
+  const cv=$('#net'),cx=cv.getContext('2d'),hero=cv.parentElement;
+  const names=['EC2','S3','IAM','VPC','Route 53','Docker','Kubernetes','Terraform','Ansible','Jenkins','Git','Linux','Python','Grafana','Prometheus','Wireshark'];
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let W,H,dpr,nodes=[],m={x:-999,y:-999};
+  const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  function size(){
+    dpr=Math.min(devicePixelRatio||1,2);W=hero.clientWidth;H=hero.clientHeight;
+    cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+    const n=W<700?10:names.length;
+    nodes=names.slice(0,n).map((t,i)=>({t,x:Math.random()*W,y:Math.random()*H*.75,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}));
+  }
+  function frame(){
+    cx.clearRect(0,0,W,H);
+    const sig=css('--signal'),mute=css('--mute'),line=css('--line'),paper=css('--paper'),ink=css('--ink');
+    nodes.forEach(n=>{
+      if(!reduce){
+        const dx=n.x-m.x,dy=n.y-m.y,d=Math.hypot(dx,dy);
+        if(d<160){n.vx+=dx/d*.05;n.vy+=dy/d*.05}
+        n.vx*=.995;n.vy*=.995;
+        n.x+=n.vx;n.y+=n.vy;
+        if(n.x<30||n.x>W-30)n.vx*=-1;
+        if(n.y<90||n.y>H*.8)n.vy*=-1;
+      }
+    });
+    cx.lineWidth=1;
+    for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
+      const a=nodes[i],b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<230){cx.globalAlpha=1-d/230;cx.strokeStyle=sig;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}
+    }
+    cx.globalAlpha=1;cx.font='600 14px Figtree, sans-serif';cx.textBaseline='middle';
+    nodes.forEach(n=>{
+      const w=cx.measureText(n.t).width+24;
+      cx.fillStyle=paper;cx.strokeStyle=line;cx.beginPath();cx.roundRect(n.x-w/2,n.y-16,w,32,16);cx.fill();cx.stroke();
+      cx.fillStyle=ink;cx.textAlign='center';cx.fillText(n.t,n.x,n.y+1);
+    });
+    if(!reduce)requestAnimationFrame(frame);
+  }
+  addEventListener('resize',()=>{size();if(reduce)frame()});
+  hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top});
+  hero.addEventListener('pointerleave',()=>{m.x=m.y=-999});
+  size();frame();
+})();
+</script>
+</body>
+</html>
